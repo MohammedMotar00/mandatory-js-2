@@ -1,6 +1,6 @@
 function startGame() {
     let player1 = 'X',
-        player2 = 'Y',
+        player2 = 'O',
         playerTurn = player1,
         winner = null,
         box = $('.box'),
@@ -16,6 +16,7 @@ function startGame() {
 
             } else if (e.target.innerHTML === "") {
                 e.target.innerHTML = playerTurn;
+                e.target.classList.add(playerTurn);
                 changePlayer();
 
             } else {
@@ -83,7 +84,7 @@ function startGame() {
     resetBtn.on('click', () => {
         playerTurn = player1;
         winner = null;
-        message("");
+        message("Let's GOOO :)");
         $('.box').html("");
     });
 
