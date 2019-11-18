@@ -1,0 +1,15 @@
+table {
+    margin:auto;
+}
+
+td {
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+}
+
+.box {
+    text-align: center;
+    font-size: 40px;
+    font-family: verdana;
+}
