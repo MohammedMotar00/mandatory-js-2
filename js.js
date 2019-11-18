@@ -7,6 +7,8 @@ function startGame() {
         resetBtn = $('#reset');
 
 
+
+
     function nextMove() {
         box.on('click', (e) => {
             if (winner !== null) {
@@ -77,12 +79,16 @@ function startGame() {
     };
 
 
+
     resetBtn.on('click', () => {
         playerTurn = player1;
         winner = null;
-        message(`It's ${playerTurn} turn!`);
-    })
+        message("");
+        $('.box').html("");
+    });
+
 
     nextMove();
 };
+
 startGame();
