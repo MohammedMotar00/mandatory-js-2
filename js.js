@@ -4,10 +4,7 @@ function startGame() {
         playerTurn = player1,
         winner = null,
         box = $('.box'),
-        resetBtn = $('#reset'),
-        moves = 0;
-
-
+        resetBtn = $('#reset');
 
 
     function nextMove() {
@@ -22,7 +19,7 @@ function startGame() {
 
 
             } else {
-                message('Oops! kvadraten används redan! välj annan kvadrat :)');
+                message('Oops! kvadraten används redan! Välj annan kvadrat :)');
             };
         });
     };
@@ -71,24 +68,12 @@ function startGame() {
 
 
     function getBox(nums) {
-        //return $('b' + nums).innerHTML;
         return document.getElementById('b' + nums).innerHTML;
     };
 
 
     function message(msg) {
-        //$('#msg').innerText = msg;
         document.getElementById('msg').innerHTML = msg;
-    };
-
-
-    function tie() {
-        resetBtn.on('click', (e) => {
-            moves++;
-            if (this.target === moves) {
-                message('Det är lika, starta om spelet');
-            }
-        });
     };
 
 
@@ -98,15 +83,13 @@ function startGame() {
         winner = null;
         message("Let's GOOO :)");
         $('.box').html("");
-    
+
         $('.X').removeClass("X").addClass("");
         $('.O').removeClass("O").addClass("");
-        
     });
 
 
     nextMove();
-    tie();
 };
 
 startGame();

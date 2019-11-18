@@ -10,6 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 50px;
+    z-index: 2;
 }
 
 #rows {
@@ -29,11 +30,71 @@ body {
 .X, .O {
     font-size: 80px;
     font-family: cursive;
+    outline: none;
+    cursor: default;
 }
 
 .X {
-    color: lightgreen;
+    color: rgb(122, 240, 122);
+    transition: all .4s ease-in-out;
+}
+.X::selection {
+    color: none;
 }
 .O {
     color: midnightblue;
+    transition: all .4s ease-in-out;
+}
+.O::selection{
+    color: none;
+}
+
+.back {
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+#reset {
+    margin-bottom: 4px;
+    font-size: 26px;
+    background-color: rgba(255, 255, 255, 0.082);
+    border: 1px solid rgba(255, 255, 255, 0.082);
+    color: rgb(77, 2, 138);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+#reset::selection {
+    color: none;
+}
+
+#reset:hover {
+    background-color: rgba(77, 2, 138, 0.404);
+    transform: scale(1.114, 1.114);
+    transition: all .6s ease-in-out;
+}
+
+#msg {
+    font-size: 25px;
+    margin-bottom: 9px;
+    cursor: default;
+    color: rgb(255, 255, 255);
+    font-family: cursive;
+}
+
+#msg::selection {
+    color: none;
 }
