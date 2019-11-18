@@ -104,6 +104,7 @@ function startGame() {
         
     });
 
+
     nextMove();
     tie();
 };
