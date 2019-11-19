@@ -98,3 +98,16 @@ video {
 #msg::selection {
     color: none;
 }
+
+h1 {
+    font-family: cursive;
+    color: white;
+    margin: auto;
+    text-align: center;
+    text-decoration: underline rgba(38, 190, 0, 0.308);
+    cursor: default;
+}
+
+h1::selection {
+    color: none;
+}

@@ -4,6 +4,7 @@ function startGame() {
         playerTurn = player1,
         winner = null,
         box = $('.box'),
+        moves = 0,
         resetBtn = $('#reset');
 
 
@@ -12,7 +13,11 @@ function startGame() {
             if (winner !== null) {
                 message(`${winner} har redan vunnit!`);
 
+            } else if (winner === null && moves === 9) {
+                tie('Det är redan oavgjort!!!  Starta om!');
+
             } else if (e.target.innerHTML === "") {
+                moves++;
                 e.target.innerHTML = playerTurn;
                 e.target.classList.add(playerTurn);
                 changePlayer();
@@ -29,6 +34,9 @@ function startGame() {
         if (checkWinner(playerTurn)) {
         message(`Grattis ${playerTurn} ! Du vann :)`);
         winner = playerTurn;
+
+        } else if (winner === null && moves === 9) {
+            tie('Oavgjort!');
 
         } else if (playerTurn === player1) {
             playerTurn = player2;
@@ -76,12 +84,17 @@ function startGame() {
         document.getElementById('msg').innerHTML = msg;
     };
 
+    function tie(msg) {
+        document.getElementById('msg').innerHTML = msg;
+    }
 
 
     resetBtn.on('click', () => {
         playerTurn = player1;
         winner = null;
+        moves = 0;
         message("Let's GOOO :)");
+        tie("Let's GOOO :)");
         $('.box').html("");
 
         $('.X').removeClass("X").addClass("");
